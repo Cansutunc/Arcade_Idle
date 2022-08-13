@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void Move(Vector3 motion) //Karakterin hareket ettirmek için
+    private void Move(Vector3 motion) //Karakteri hareket ettirmek için
     {
-        characterController.Move(motion*Time.deltaTime); //motion*Time.deltaTime da 1 snde 60 frame olduðu i.in onu düþürmek için
+        characterController.Move(motion*Time.deltaTime); //motion*Time.deltaTime da 1 snde 60 frame olduðu için onu düþürmek için
     }
 
     //movement wrt joystick movement
