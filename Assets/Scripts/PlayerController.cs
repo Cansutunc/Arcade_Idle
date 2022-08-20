@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Animator animator;
 
+    [SerializeField]
+    StackMechanic stackmechanic; //get other script by instructor
+
     void Start()
     {
         main_camera = Camera.main; // cachelemek için, her updatede sürekli camerayý bastan aratmamak için
@@ -62,5 +65,19 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         return forward * joystick.Vertical + right * joystick.Horizontal; // karakterin hareket mesafesi joystickin yönüne baðlanýr
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("CollectArea"))
+        {
+            var collectedCube = other.GetComponent<CollectItemController>();
+            var collectedLastItem = collectedCube.creationController.GetLastItem();
+            // eðer GetLast Itemden dönen eleman null deðilse 
+            if(collectedLastItem != null)
+            {
+                stackmechanic.AddNewItem(collectedLastItem.transform);
+                
+            }
+        }      
     }
 }
