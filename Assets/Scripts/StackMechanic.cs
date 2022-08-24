@@ -14,10 +14,10 @@ public class StackMechanic : MonoBehaviour
     public void AddNewItem(Transform _ItemtoAdd)
     {
         listOfitems.Add(_ItemtoAdd);
-        _ItemtoAdd.DOJump(itemHolderTransform.position +new Vector3(0, 0.001f * numofitemholding, 0),1.5f,1,0.25f).OnComplete(
+        _ItemtoAdd.SetParent(itemHolderTransform, true);
+        _ItemtoAdd.DOLocalMove(new Vector3(0, 0.001f * numofitemholding, 0),1.5f).OnComplete(
             () =>
-            {
-                _ItemtoAdd.SetParent(itemHolderTransform, true);
+            {    
                 _ItemtoAdd.localPosition = new Vector3(0,0.0001f*numofitemholding,0);
                 _ItemtoAdd.localRotation = Quaternion.identity;
                 numofitemholding++;             

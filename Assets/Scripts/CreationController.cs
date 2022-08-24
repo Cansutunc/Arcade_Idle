@@ -53,7 +53,9 @@ public class CreationController : MonoBehaviour
         }
         else
         {
-            return listOfitems[listOfitems.Count - 1];
+            GameObject gameObject = listOfitems[listOfitems.Count - 1];
+            listOfitems.Remove(gameObject);
+            return gameObject;
         }
         
     }
