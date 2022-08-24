@@ -35,7 +35,7 @@ public class StackMechanic : MonoBehaviour
         });
         if(listOfitems.Count == 0)
         {
-            
+            return;           
         }
         itemDrop = listOfitems[listOfitems.Count-1];
         listOfitems.Remove(itemDrop);

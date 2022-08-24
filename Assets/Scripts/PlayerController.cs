@@ -70,13 +70,20 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("CollectArea"))
         {
+            Debug.Log("item toplanmaya hazýr");
             var collectedCube = other.GetComponent<CollectItemController>();
-            var collectedLastItem = collectedCube.creationController.GetLastItem();
+
+            if (collectedCube!= null)
+            {
+                Debug.Log("item toplanmaya hazýr3");
+                
+            }
+            GameObject collectedLastItem = collectedCube.creationController.GetLastItem();
             // eðer GetLast Itemden dönen eleman null deðilse 
             if(collectedLastItem != null)
             {
-                stackmechanic.AddNewItem(collectedLastItem.transform);
-                
+                Debug.Log("item toplanmaya hazýr2");
+                stackmechanic.AddNewItem(collectedLastItem.transform);                
             }
         }      
     }
